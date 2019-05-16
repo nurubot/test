@@ -5,10 +5,10 @@ script:
   - git remote add upstream https://github.com/nurupo/ci-release-publisher > /dev/null 2>&1
   - git fetch upstream > /dev/null 2>&1
   - git branch -D build
-  - git checkout -b build upstream/<branch>
+  - git checkout -b build upstream/master
   - mv ../travis.yml.build .travis.yml
-  - git config --global user.email "<new-github-users-email>@example.com"
-  - git config --global user.name "<new-github-users-name>"
+  - git config --global user.email "test@example.com"
+  - git config --global user.name "nurupo-test"
   - git commit -am "Modify upstream repo for building"
   - git push origin build --force > /dev/null 2>&1
   - #git checkout -b cron-$TRAVIS_BUILD_ID && git push origin cron-$TRAVIS_BUILD_ID > /dev/null 2>&1
