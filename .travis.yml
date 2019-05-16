@@ -1,12 +1,12 @@
 script:
-  - cp .travis.yml.build ..
+  - cp .travis.build.yml ..
   - git remote rm origin
   - git remote add origin https://$GITHUB_ACCESS_TOKEN@github.com/$TRAVIS_REPO_SLUG > /dev/null 2>&1
   - git remote add upstream https://github.com/nurupo/ci-release-publisher > /dev/null 2>&1
   - git fetch upstream > /dev/null 2>&1
   - git branch -D build
   - git checkout -b build upstream/master
-  - mv ../travis.yml.build .travis.yml
+  - mv ../travis.build.yml .travis.yml
   - git config --global user.email "test@example.com"
   - git config --global user.name "nurupo-test"
   - git commit -am "Modify upstream repo for building"
