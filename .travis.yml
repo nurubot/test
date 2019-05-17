@@ -7,6 +7,7 @@ script:
   - git branch -D build
   - git checkout -b build upstream/master
   - mv ../travis.build.yml .travis.yml
+  - sed -i 's/-m ci_release_publisher/-m ci_release_publisher --travis-instance-com/' .travis/ci_release_publisher_*
   - git config --global user.email "test@example.com"
   - git config --global user.name "nurupo-test"
   - git commit -am "Modify upstream repo for building"
