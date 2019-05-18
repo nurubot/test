@@ -27,33 +27,6 @@ matrix:
         - .travis/ci_release_publisher_cleanup1.sh
         - .travis/ci_release_publisher_store.sh "$TRAVIS_BUILD_DIR/deploy"
         - .travis/ci_release_publisher_cleanup2.sh
-    - stage: "Build"
-      env: JOB="Linux AppImage armel"
-      script:
-        - sudo docker run --rm -v $PWD:/repo debian:stretch-slim /bin/bash /repo/.travis/build_linux.sh armel
-        - .travis/ci_release_publisher_cleanup1.sh
-        - .travis/ci_release_publisher_store.sh "$TRAVIS_BUILD_DIR/deploy"
-        - .travis/ci_release_publisher_cleanup2.sh
-    - stage: "Build"
-      env: JOB="Linux AppImage armhf"
-      script:
-        - sudo docker run --rm -v $PWD:/repo debian:stretch-slim /bin/bash /repo/.travis/build_linux.sh armhf
-        - .travis/ci_release_publisher_cleanup1.sh
-        - .travis/ci_release_publisher_store.sh "$TRAVIS_BUILD_DIR/deploy"
-        - .travis/ci_release_publisher_cleanup2.sh
-    - stage: "Build"
-      env: JOB="Linux AppImage arm64"
-      script:
-        - sudo docker run --rm -v $PWD:/repo debian:stretch-slim /bin/bash /repo/.travis/build_linux.sh arm64
-        - #/bin/false
-        - .travis/ci_release_publisher_cleanup1.sh
-        - .travis/ci_release_publisher_store.sh "$TRAVIS_BUILD_DIR/deploy"
-        - .travis/ci_release_publisher_cleanup2.sh
-    - stage: "Hm"
-      env: JOB="foo"
-      script:
-        - #/bin/false
-        - .travis/ci_release_publisher_cleanup3.sh
     - stage: "Deploy"
       if: type != pull_request
       script:
@@ -61,7 +34,6 @@ matrix:
         - .travis/ci_release_publisher_collect.sh
         - .travis/ci_release_publisher_cleanup4.sh
         - .travis/ci_release_publisher_publish.sh
-        - #/bin/false
         - .travis/ci_release_publisher_cleanup5.sh
 
 branches:
@@ -71,4 +43,3 @@ branches:
 
 notifications:
   email: false
-

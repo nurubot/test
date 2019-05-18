@@ -19,6 +19,6 @@ fi
 
 cd .travis/tools
 pip install -r ci_release_publisher/requirements.txt
-python -m ci_release_publisher --help
-python -m ci_release_publisher collect --help
-python -m ci_release_publisher collect "$ARTIFACTS_DIR"
+python -m ci_release_publisher --travis-instance-com --help
+python -m ci_release_publisher --travis-instance-com collect --help
+python -m ci_release_publisher --travis-instance-com collect "$ARTIFACTS_DIR"
