@@ -6,10 +6,11 @@ cache:
     - /tmp/cirp
 
 script:
-  - .travis/create_branch.sh
+  - # Put away our travis config for now
   - cp .travis.${DIFFERENT_REPO_BRANCH}.yml ..
+  - # Checkout main repository's branch
   - git remote rm origin
-  - git remote add origin https://${GITHUB_ACCESS_TOKEN}@github.com/$TRAVIS_REPO_SLUG > /dev/null 2>&1
+  - git remote add origin https://$GITHUB_ACCESS_TOKEN@github.com/$TRAVIS_REPO_SLUG > /dev/null 2>&1
   - git remote add upstream https://github.com/$MAIN_REPO_SLUG > /dev/null 2>&1
   - git fetch upstream > /dev/null 2>&1
   - git branch -D $DIFFERENT_REPO_BRANCH || true
@@ -26,4 +27,3 @@ script:
   - git config --global user.name "nurupo-test"
   - git commit -am "Modify upstream repo for building"
   - git push origin $DIFFERENT_REPO_BRANCH --force > /dev/null 2>&1
-  
