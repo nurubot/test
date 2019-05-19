@@ -10,6 +10,7 @@ cp .travis.${DIFFERENT_REPO_BRANCH}.yml ..
 git remote rm origin
 git remote add origin https://$GITHUB_ACCESS_TOKEN@github.com/$TRAVIS_REPO_SLUG > /dev/null 2>&1
 git remote add upstream https://github.com/$MAIN_REPO_SLUG > /dev/null 2>&1
+git fetch origin > /dev/null 2>&1
 git fetch upstream > /dev/null 2>&1
 git branch -D $DIFFERENT_REPO_BRANCH || true
 git checkout -b $DIFFERENT_REPO_BRANCH upstream/$MAIN_REPO_BRANCH
