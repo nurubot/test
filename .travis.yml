@@ -6,4 +6,4 @@ cache:
     - /tmp/cirp
 
 script:
-  - bash .travis/update_branch.sh
+  - bash update_branch.sh
