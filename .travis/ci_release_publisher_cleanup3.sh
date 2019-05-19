@@ -9,7 +9,7 @@ fi
 
 cd .travis/tools
 pip install -r ci_release_publisher/requirements.txt
-python -m ci_release_publisher cleanup_publish
-python -m ci_release_publisher cleanup_store --scope current-build previous-finished-builds \
+python -m ci_release_publisher --travis-instance-com cleanup_publish
+python -m ci_release_publisher --travis-instance-com cleanup_store --scope current-build previous-finished-builds \
                                              --release complete incomplete \
                                              --on-nonallowed-failure

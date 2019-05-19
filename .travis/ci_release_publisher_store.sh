@@ -21,5 +21,5 @@ ARTIFACTS_DIR="$(readlink -f -- $1)"
 
 cd .travis/tools
 pip install -r ci_release_publisher/requirements.txt
-python -m ci_release_publisher store --help
-python -m ci_release_publisher store "$ARTIFACTS_DIR"
+python -m ci_release_publisher --travis-instance-com store --help
+python -m ci_release_publisher --travis-instance-com store "$ARTIFACTS_DIR"

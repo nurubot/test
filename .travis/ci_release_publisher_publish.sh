@@ -19,8 +19,8 @@ fi
 
 cd .travis/tools
 pip install -r ci_release_publisher/requirements.txt
-python -m ci_release_publisher publish --help
-python -m ci_release_publisher publish --latest-release \
+python -m ci_release_publisher --travis-instance-com publish --help
+python -m ci_release_publisher --travis-instance-com publish --latest-release \
                                        --latest-release-prerelease \
                                        --numbered-release \
                                        --numbered-release-keep-count 3 \
