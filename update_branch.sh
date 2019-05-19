@@ -23,7 +23,7 @@ if [ -f "/tmp/cirp/previous_runs_commit" ]; then
     git rev-parse HEAD > /tmp/cirp/previous_runs_commit
   fi
 else
-  mkdir /tmp/cirp
+  mkdir -p /tmp/cirp
   git rev-parse HEAD > /tmp/cirp/previous_runs_commit
 fi
 
