@@ -13,7 +13,7 @@ git remote add upstream https://github.com/$MAIN_REPO_SLUG > /dev/null 2>&1
 git fetch upstream > /dev/null 2>&1
 git branch -D $DIFFERENT_REPO_BRANCH || true
 git checkout -b $DIFFERENT_REPO_BRANCH upstream/$MAIN_REPO_BRANCH
-git log
+git log -1
 
 # Don't create a new release if the main repository hasn't updated since the previous release
 if [ -f "/tmp/cirp/previous_runs_commit" ]; then
